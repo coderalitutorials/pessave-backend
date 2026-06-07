@@ -273,7 +273,17 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://pessave-frontend.vercel.app",
+      "https://pestcontrolchelsea.co.uk",
+      "https://www.pestcontrolchelsea.co.uk",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
